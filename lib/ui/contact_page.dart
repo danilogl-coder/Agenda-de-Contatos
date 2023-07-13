@@ -5,9 +5,9 @@ import "package:flutter/material.dart";
 import "../helpers/contac_helper.dart";
 
 class ContactPage extends StatefulWidget {
-  ContactPage({super.key, required this.contact});
+  ContactPage({super.key, this.contact});
 
-  final Contact contact;
+  final Contact? contact;
 
   @override
   State<ContactPage> createState() => _ContactPageState();
@@ -28,7 +28,7 @@ class _ContactPageState extends State<ContactPage> {
       if (widget.contact == null) {
         _editContact = Contact();
       } else {
-        _editContact = Contact.fromMap(widget.contact.toMap());
+        _editContact = Contact.fromMap(widget.contact!.toMap());
         _nameController.text = _editContact.name;
         _emailController.text = _editContact.email;
         _phoneController.text = _editContact.phone;
